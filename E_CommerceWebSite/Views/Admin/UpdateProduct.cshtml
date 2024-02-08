@@ -1,0 +1,95 @@
+﻿
+@{
+    ViewBag.Title = "UpdateProduct";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+
+@model E_CommerceWebSite.Models.Products
+
+<div class="row">
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading">
+                Add Product
+            </header>
+            <div class="panel-body">
+                <div class=" form">
+                    <form class="cmxform form-horizontal tasi-form" id="commentForm" method="post" action="/Admin/UpdateProduct">
+                        <div class="form-group ">
+                            <label for="cname" class="control-label col-lg-2">Name</label>
+                            <div class="col-lg-10">
+                                <input value="@Model.ProductName" class=" form-control" id="cname" name="ProductName" minlength="2" type="text" required />
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="cemail" class="control-label col-lg-2">Description</label>
+                            <div class="col-lg-10">
+                                <input value="@Model.Description" class="form-control " id="cemail" type="text" name="Description" required />
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="cemail" class="control-label col-lg-2">Type Of Unit</label>
+                            <div class="col-lg-10">
+                                <input value="@Model.TypeOfUnit" class="form-control " id="cemail" type="text" name="TypeOfUnit" required />
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="curl" class="control-label col-lg-2">Price</label>
+                            <div class="col-lg-10">
+                                <input value="@Model.Price" class="ui-spinner-input form-control" id="curl" type="number" name="Price" />
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="curl" class="control-label col-lg-2">Amount Of Stock</label>
+                            <div class="col-lg-10">
+                                <input value="@Model.AmountOfStock" class="ui-spinner-input form-control" id="curl" type="number" name="AmountOfStock" />
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="cemail" class="control-label col-lg-2">Category</label>
+                            <div class="col-lg-10">
+                                <select class="form-control " id="cemail" type="text" name="CategoryID">
+                                    @foreach (var Category in ViewBag.Categories)
+                                    {
+                                        <option value="@Model.Category.Id">@Category.Name</option>
+                                    }
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="cemail" class="control-label col-lg-2">Brand Name</label>
+                            <div class="col-lg-10">
+                                <select class="form-control " id="cemail" type="text" name="BrandID">
+                                    @foreach (var Brand in ViewBag.Brands)
+                                    {
+                                        <option value="@Model.BrandID">@Brand.Name</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="cemail" class="control-label col-lg-2">Expiration Date</label>
+                            <div class="col-lg-10">
+                                <input class="form-control " id="cemail" type="date" name="ExpirationDate" />
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="col-lg-offset-2 col-lg-10">
+                                <button class="btn btn-danger" type="submit">Save</button>
+                                <button class="btn btn-default" type="button">Cancel</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+    </div>
+</div>
+
+
+

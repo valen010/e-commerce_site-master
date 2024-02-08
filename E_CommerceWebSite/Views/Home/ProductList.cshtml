@@ -1,0 +1,161 @@
+﻿
+@{
+    ViewBag.Title = "ProductList";
+    Layout = "~/Views/Shared/Home_Layout.cshtml";
+}
+@model IEnumerable<E_CommerceWebSite.Models.ProductImage>
+
+<div class="col-md-3">
+    <section class="panel">
+        <div class="panel-body">
+            <input type="text" placeholder="Keyword Search" class="form-control">
+        </div>
+    </section>
+    <section class="panel">
+        <header class="panel-heading">
+            Category
+        </header>
+        <div class="panel-body">
+            <ul class="nav prod-cat">
+                @foreach (var category in ViewBag.categories)
+                {
+                    <li><a href="/Home/ProductList?id=@category.Id"><i class=" icon-angle-right"></i> @category.Name</a></li>
+                }
+            </ul>
+        </div>
+    </section>
+    <section class="panel">
+        <header class="panel-heading">
+            Price Range
+        </header>
+        <div class="panel-body sliders">
+            <div id="slider-range" class="slider"></div>
+            <div class="slider-info">
+                <span id="slider-range-amount"></span>
+            </div>
+        </div>
+    </section>
+    <section class="panel">
+        <header class="panel-heading">
+            Best Seller
+        </header>
+        <div class="panel-body">
+            <div class="best-seller">
+                <article class="media">
+                    <a class="pull-left thumb p-thumb">
+                        <img src="/Content/Admin/img/product1.jpg">
+                    </a>
+                    <div class="media-body">
+                        <a href="#" class=" p-head">Item One Tittle</a>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                </article>
+                <article class="media">
+                    <a class="pull-left thumb p-thumb">
+                        <img src="/Content/Admin/img/product2.png">
+                    </a>
+                    <div class="media-body">
+                        <a href="#" class=" p-head">Item Two Tittle</a>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                </article>
+                <article class="media">
+                    <a class="pull-left thumb p-thumb">
+                        <img src="/Content/Admin/img/product3.png">
+                    </a>
+                    <div class="media-body">
+                        <a href="#" class=" p-head">Item Three Tittle</a>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="col-md-9">
+    <section class="panel">
+        <div class="panel-body">
+            <div class="pro-sort">
+                <label class="pro-lab">Sort By</label>
+                <select class="styled">
+                    <option>Default Sorting</option>
+                    <option>Popularity</option>
+                    <option>Average Rating</option>
+                    <option>Newness</option>
+                    <option>Price Low to High</option>
+                    <option>Price High to Low</option>
+                </select>
+            </div>
+            <div class="pro-sort">
+                <label class="pro-lab">Show</label>
+                <select class="styled">
+                    <option>Result Per Page</option>
+                    <option>2 Per Page</option>
+                    <option>4 Per Page</option>
+                    <option>6 Per Page</option>
+                    <option>8 Per Page</option>
+                    <option>10 Per Page</option>
+                </select>
+            </div>
+            <div class="pull-right">
+                <ul class="pagination pagination-sm pro-page-list">
+
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">»</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <div class="row product-list">
+
+        @foreach (var product in Model)
+        {
+            <div class="col-md-4">
+                <section class="panel">
+                    <div class="pro-img-box">
+                        <img src="@product.Image.Medium" alt="" />
+
+                        <a href="" class="adtocart addToCart" data-id="@product.product.Id" onclick="myfunc()">
+                            <i class="icon-shopping-cart"></i>
+                        </a>
+                    </div>
+
+                    <div class="panel-body text-center">
+                        <h4>
+                            <a href="/Home/ProductDetail?id=@product.product.Id" class="pro-title">
+                                @product.product.ProductName
+                            </a>
+                        </h4>
+                        <p class="price">@((float?)product.product.Price) $</p>
+                    </div>
+                </section>
+            </div>
+        }
+    </div>
+</div>
+<script src="/Content/Admin/js/jquery.js"></script>
+<script src="/Content/Admin/js/bootstrap.min.js"></script>
+
+
+@section scripts{
+    <script type="text/javascript">
+        $(".addToCart").click(function () {
+            var id = $(this).data("id");
+            $.ajax({
+
+                type: "POST",
+                url: "/Home/AddToCart/" + id,
+                success: function () {
+                    
+                },
+                error: function () {
+
+
+                }
+
+            });
+        });
+    </script>
+    }

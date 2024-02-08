@@ -1,0 +1,50 @@
+﻿@model IEnumerable<E_CommerceWebSite.Models.PropertyType>
+<script src="~/Content/Admin/js/jquery-1.8.3.min.js"></script>
+<script>
+    $("#types").change(function myfunction() {
+
+        var id = $(this).val();
+        $.ajax({
+            type: "Get",
+            url: "/Admin/ProductPropertyValueWidget",
+            data: { typeId: id },
+            success: function myfunction(data) {
+                $("#value").html('');
+                $("#value").html(data);
+
+            },
+            error: function myfuction() {
+                alert("error");
+
+            }
+
+        });
+
+    });
+
+
+
+</script>
+
+
+
+
+<div class="form-group">
+    <label class="col-lg-2 control-label">Property Types</label>
+    <div class="col-lg-10">
+        <select class="form-control m-bot15" name="PropertyTypeID" id="types" onchange="changeType()">
+            @foreach (var type in Model)
+            {
+                <option value="@type.Id">@type.Name</option>
+
+            }
+
+
+
+        </select>
+
+
+    </div>
+
+
+</div>

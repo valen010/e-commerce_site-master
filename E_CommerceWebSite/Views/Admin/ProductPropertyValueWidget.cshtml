@@ -1,0 +1,15 @@
+﻿@model IEnumerable<E_CommerceWebSite.Models.PropertyValue>
+
+<div class="form-group">
+    <label class="col-lg-2 control-label">Property Value</label>
+    <div class="col-lg-10">
+        <select class="form-control m-bot15" name="PropertyValueID">
+            @foreach (var value in Model)
+             {
+                <option value="@value.Id">@value.Name</option>
+
+             }
+        </select>
+    </div>
+</div>
+

@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Comments";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+@model IEnumerable<E_CommerceWebSite.Models.UserComments>
+<div class="row">
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading">
+                Comments
+            </header>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th> User Name</th>
+                        <th class="hidden-phone">Comment</th>
+                        <th>DateTime</th>
+                        <th>IsApproved</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var comment in Model)
+                    {
+                    <tr>
+                        <td>@comment.Client.UserName</td>
+                        <td>@comment.Comment</td>
+                        <td>@comment.DateCreated</td>
+                        <td>@comment.IsApproved</td>
+              
+                        <td><a class="btn btn-success btn-xs" href="/Admin/ApproveComment?Id=@comment.Id"><i class="icon-ok-circle"></i>Approve</a></td>
+                        <td><a class="btn btn-primary btn-xs" href="/Admin/UpdateProduct?Id=@comment.Id"><i class="icon-pencil"></i></a></td>
+                        <td><a class="btn btn-danger btn-xs" href="/Admin/ProductDelete?Id=@comment.Id"><i class="icon-trash "></i></a></td>
+
+                    </tr>
+
+                    }
+
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div>
+
+
+

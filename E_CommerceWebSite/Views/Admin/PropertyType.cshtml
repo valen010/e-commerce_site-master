@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "PropertyType";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+@model IEnumerable<E_CommerceWebSite.Models.PropertyType>
+<div class="row">
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading">
+                Property Types
+               <br />
+                  <br />
+                <div class="btn-group" >
+                    <a href="/Admin/AddPropertyType">
+                        <i class="icon-plus"></i> New Property Type
+                    </a>
+                </div>
+            </header>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th class="hidden-phone">Description</th>
+                        <th>Category</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var propType in Model)
+                    {
+                        <tr>
+                            <td>@propType.Name</td>
+                            <td>@propType.Description</td>
+                            <td>@propType.Category.Name</td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div>

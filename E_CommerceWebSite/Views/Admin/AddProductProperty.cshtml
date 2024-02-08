@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewBag.Title = "AddProductProperty";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+@model IEnumerable<E_CommerceWebSite.Models.Products>
+<div class="panel-body">
+    <form role="form" class="form-horizontal tasi-form" method="post" action="/Admin/AddNewProductProperty">
+        <div class="form-group">
+            <label class="col-lg-2 control-label">Product :</label>
+            <div class="col-lg-10">
+
+                <select class="form-control m-bot15" name="ProductID" id="product">
+
+                    @foreach (var products in Model)
+                    {
+
+                            <option selected value="@products.Id" title="@products.CategoryID">@products.ProductName</option>
+                     
+                    }
+
+                </select>
+            </div>
+        </div>
+        <div id="type">
+
+
+        </div>
+        <div id="value">
+
+
+        </div>
+
+
+        <!-- @{
+           /// Html.RenderAction("UrunOzellikTipWidget", "Admin");
+           // Html.RenderAction("UrunOzellikDegeriWidget", "Admin");
+        } -->
+
+        <div class="form-group">
+            <div class="col-lg-offset-2 col-lg-10">
+                <button class="btn btn-danger" type="submit">Submit</button>
+
+            </div>
+        </div>
+    </form>
+</div>
+
+@section head{
+    <script src="~/Content/Admin/js/jquery-1.8.3.min.js"></script>
+    <script>
+        $(document).ready(function myfunction() {
+            $("#product").change(function myfunction() {
+
+           
+
+                var kId = $(this).find("option:selected").attr("title");
+                 alert(kId);
+                $.ajax({
+                    type: "GET",
+                    url: "/Admin/ProductPropertyTypeWidget",
+                    data: { categoryId: kId },
+
+                    success: function myfunction(data) { $("#type").html(''); $("#type").append(data); },
+                    error: function mydunction() {
+                        alert("error");
+                    }
+
+
+                });
+            });
+            $("#type .m-bot15").change(function myfunction() {
+                var id = $(this).val();
+                //alert(id);
+
+
+
+            });
+        });
+
+
+    </script>
+
+}
