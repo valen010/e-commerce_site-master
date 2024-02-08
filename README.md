@@ -11,15 +11,15 @@ Asp.net MVC, C#, Ajax, Entity Framework-Db first approach
 ### Functions
 #### Admin
 * #### Assign role
-![grab-landing-page](https://github.com/Emel212/E_CommerceWebSite/blob/master/screenCaptures/assign-role.gif)
+![grab-landing-page](https://github.com/valen010/E_CommerceWebSite/blob/master/screenCaptures/assign-role.gif)
 * #### Add product
-![grab-landing-page](https://github.com/Emel212/E_CommerceWebSite/blob/master/screenCaptures/AddNewPeoduct.gif)
+![grab-landing-page](https://github.com/valen010/E_CommerceWebSite/blob/master/screenCaptures/AddNewPeoduct.gif)
 * #### Add brand
-![grab-landing-page](https://github.com/Emel212/E_CommerceWebSite/blob/master/screenCaptures/AddBrand.gif)
+![grab-landing-page](https://github.com/valen010/E_CommerceWebSite/blob/master/screenCaptures/AddBrand.gif)
 * #### Add Product Property (with partial views)
-![grab-landing-page](https://github.com/Emel212/E_CommerceWebSite/blob/master/screenCaptures/product-properties.gif)
+![grab-landing-page](https://github.com/valen010/E_CommerceWebSite/blob/master/screenCaptures/product-properties.gif)
 * #### Approve comments
-![grab-landing-page](https://github.com/Emel212/E_CommerceWebSite/blob/master/screenCaptures/comment.gif)
+![grab-landing-page](https://github.com/valen010/E_CommerceWebSite/blob/master/screenCaptures/comment.gif)
 * #Add categories
 * #Add product image
 * #Set default image for products, categories
